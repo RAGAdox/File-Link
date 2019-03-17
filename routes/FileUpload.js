@@ -16,13 +16,14 @@ router.get("/", (req, res) =>{
         doc.forEach(obj=>{
             links.push(obj.link)
         })
+        res.render("index", {
+            title: "Files App",
+            filelist,
+            links
+        })
     })
     .catch(err=>{console.log(err)});
-    res.render("index", {
-        title: "Files App",
-        filelist,
-        links
-    })
+    
 }
 );
 router.post("/links", (req, res) => {
